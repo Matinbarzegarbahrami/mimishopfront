@@ -7,7 +7,7 @@ import { useState, useRef, useEffect } from "react";
 export default function Header() {
   const [navbar, setNavbar] = useState(false);
   const navRef = useRef<HTMLElement | null>(null);
-  const btnRef = useRef<HTMLElement | null>(null);
+  const btnRef = useRef<HTMLButtonElement | null>(null);
 
   useEffect(() => {
     function handleOutsideClick(e:any) {
