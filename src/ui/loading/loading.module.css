@@ -1,0 +1,91 @@
+/* ==========================
+   FILE: components/loading.module.css
+   DESCRIPTION: Logo animation for loading page
+   ========================== */
+
+.loadingContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh; /* تمام صفحه */
+  width: 100%;
+  padding: 2rem;
+ 
+}
+
+/* ================= Logo Animation ================= */
+.logo {
+  display: flex;
+  align-items: center;
+  font-family: Arial, sans-serif;
+  font-weight: bold;
+  font-size: 48px;
+  margin-bottom: 1rem;
+}
+
+.pey {
+  margin-right: 10px;
+  opacity: 0;
+  color: black;
+  animation: fadeIn 0.5s forwards; /* سریع‌تر */
+  animation-delay: 1.3s;
+}
+
+.shenBox {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 0;
+  height: 0;
+  background: var(--color-accent-red);
+  color: white;
+  border-radius: 50%;
+  overflow: hidden;
+  animation: dropDown 0.8s forwards; /* سریع‌تر */
+}
+
+.shenText {
+  opacity: 0;
+  animation: showText 0.4s forwards; /* سریع‌تر */
+  animation-delay: 0.8s;
+}
+
+/* ================= Animations ================= */
+@keyframes dropDown {
+  0% {
+    transform: translateY(-200px);
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+  }
+  60% {
+    transform: translateY(0);
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+  }
+  100% {
+    width: 180px;
+    height: 80px;
+    border-radius: 12px;
+  }
+}
+
+@keyframes showText {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+/* ================= Optional Loading Message ================= */
+.message {
+  margin-top: 1rem;
+  font-size: 1rem;
+  color: #374151;
+  text-align: center;
+}

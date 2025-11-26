@@ -1,0 +1,72 @@
+.header {
+  display: flex;
+  justify-content: space-between;
+  padding: 20px;
+  align-items: center;
+  background-color: #ff75f8;
+  border-radius: 10px;
+
+}
+
+.navbarT {
+  position: fixed;
+  /* روی صفحه ثابت شود */
+  left: 0;
+  /* از سمت چپ بچسبد */
+  top: 0;
+  /* از بالا شروع شود */
+  width: 250px;
+  /* عرض منوی چپ */
+  height: 100vh;
+  /* کل ارتفاع صفحه را بگیرد */
+  background: #222;
+  /* رنگ پس‌زمینه */
+  color: white;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  transform: translateX(0);
+  /* نمایش */
+  transition: 2s ease;
+  margin: 0;
+  align-items: flex-end;
+  list-style: none;
+}
+
+.navbarF {
+  display: none;
+
+}
+
+.navbtn {
+  padding: 0;
+  margin: 0;
+  width: 32px;
+  height: 32px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 0;
+  background-color: #ff75f8;
+}
+
+.navhead {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  width: 100%;
+  flex-direction: row-reverse;
+  margin: 15px 0
+}
+.navitems {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 20px;
+    margin-right: 20px;
+}
+.navbarbtn{
+  background-color: #222;
+  border: none;
+}

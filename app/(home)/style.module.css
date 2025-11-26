@@ -1,0 +1,29 @@
+.header {
+    display: flex;
+    justify-content: space-between;
+    padding: 20px;
+    align-items: center;
+    background-color: #FF61F7;
+    border-radius: 10px;
+    
+}
+.navbar{
+    display:none;
+}
+.main{
+
+    border-radius: 10px;
+
+    margin-top: 10px;
+}
+.offerText{
+    text-align: right;
+    margin: 20px;
+}
+.offerTextBox{
+    display: flex;
+    justify-content: flex-end;
+}
+.menuBox{
+    margin-bottom: 20px;
+}

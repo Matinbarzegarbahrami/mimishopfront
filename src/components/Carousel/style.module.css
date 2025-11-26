@@ -1,0 +1,53 @@
+.productbox {
+    border: solid 1px rgba(224, 97, 255,.4);
+    width: 200px;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    margin: 10px 0;
+    padding: 20px;
+    background-color: #FFF;
+}
+.productboxcenter{
+    display: flex;
+    justify-content: center;
+}
+.mainbox{
+    display: flex;
+    justify-content: space-between;
+    border-radius: 10px;
+    
+
+}
+.productbox p{
+    margin: 0;
+}
+.btnbox{
+    display: flex;
+    align-items: center;
+    padding: 10px;
+}
+.btn {
+    background: #FF8BF9;
+    border: none;
+    width: 100px;
+    height: 40px;
+    border-radius: 20px;
+    transition: background .2s ease;
+}
+
+.btn:active {
+    animation: myAnimation .2s ease forwards;
+}
+
+@keyframes myAnimation {
+    0% {background: #FF8BF9;}
+    50% {background: #ff73f8;}
+    100% {background: #c14fff;}
+}
+
+.img{
+    width: 100%;
+    height: 100px;
+}
