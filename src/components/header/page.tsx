@@ -1,32 +1,35 @@
 "use client";
-import { Menu, Undo2 } from 'lucide-react';
-import style from "./style.module.css"
+import { Menu, Undo2 } from "lucide-react";
+import style from "./style.module.css";
 import { useState, useRef, useEffect } from "react";
-
 
 export default function Header() {
   const [navbar, setNavbar] = useState(false);
-  const navRef = useRef<HTMLElement | null>(null);
+
+  // Ref دقیق برای هر عنصر
+  const navRef = useRef<HTMLUListElement | null>(null);
   const btnRef = useRef<HTMLButtonElement | null>(null);
 
+  // Detect click outside navbar
   useEffect(() => {
-    function handleOutsideClick(e:any) {
+    const handleOutsideClick = (e: MouseEvent) => {
       if (!navbar) return;
 
-      // اگر کلیک داخل نوبار یا روی دکمه نبود -> ببند
-      const clickedInsideNav = navRef.current?.contains(e.target);
-      const clickedOnButton = btnRef.current?.contains(e.target);
+      const clickedInsideNav = navRef.current?.contains(e.target as Node);
+      const clickedOnButton = btnRef.current?.contains(e.target as Node);
+
       if (!clickedInsideNav && !clickedOnButton) {
         setNavbar(false);
       }
-    }
+    };
 
     document.addEventListener("click", handleOutsideClick);
     return () => document.removeEventListener("click", handleOutsideClick);
   }, [navbar]);
 
   return (
-    <div className={style.header}>
+    <header className={style.header}>
+      {/* دکمه باز/بستن منو */}
       <button
         ref={btnRef}
         aria-expanded={navbar}
@@ -36,20 +39,49 @@ export default function Header() {
         <Menu />
       </button>
 
+      {/* منو */}
       <ul ref={navRef} className={navbar ? style.navbarT : style.navbarF}>
         <div className={style.navhead}>
-          <li><a style={{color:"#fff", fontWeight:"bold", fontSize:20}} href="">null shop</a></li>
-          <li><button className={style.navbarbtn} onClick={()=>setNavbar(false)}><Undo2 color={"#fff"}/></button></li>
+          <li>
+            <a style={{ color: "#fff", fontWeight: "bold", fontSize: 20 }} href="">
+              null shop
+            </a>
+          </li>
+          <li>
+            <button
+              className={style.navbarbtn}
+              onClick={() => setNavbar(false)}
+            >
+              <Undo2 color="#fff" />
+            </button>
+          </li>
         </div>
+
         <div className={style.navitems}>
-          <li><a style={{color:"#fff"}} href="">خانه</a></li>
-          <li><a style={{color:"#fff"}} href="#">آدرس</a></li>
-          <li><a style={{color:"#fff"}} href="#">پشتیبانی</a></li>
-          <li><a style={{color:"#fff"}} href="#">درباره ما</a></li>
+          <li>
+            <a style={{ color: "#fff" }} href="">
+              خانه
+            </a>
+          </li>
+          <li>
+            <a style={{ color: "#fff" }} href="#">
+              آدرس
+            </a>
+          </li>
+          <li>
+            <a style={{ color: "#fff" }} href="#">
+              پشتیبانی
+            </a>
+          </li>
+          <li>
+            <a style={{ color: "#fff" }} href="#">
+              درباره ما
+            </a>
+          </li>
         </div>
       </ul>
 
       <a href="#">null shop</a>
-    </div>
+    </header>
   );
 }
